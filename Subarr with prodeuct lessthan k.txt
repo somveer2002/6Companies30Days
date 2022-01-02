@@ -1,0 +1,36 @@
+3)Count the subarrays having product less than k 
+
+class Solution{
+  public:
+    int countSubArrayProductLessThanK(const vector<int>& a, int n, long long k) {
+        int i,j,res=0;
+        long long prevProd=1;
+        bool flag;
+        for(i=0,j=0;j<n;){
+            flag=true;
+            if((prevProd*a[j])<k){
+                prevProd*=a[j];
+                res+=(j-i+1);
+                j++;
+            }
+            else{
+                while((prevProd*a[j])>=k){
+                    if(i==j){
+                        i++;
+                        j++;
+                        flag=false;
+                        break;
+                    }
+                    prevProd/=a[i];
+                    i++;
+                }
+                if(flag&&((prevProd*a[j])<k)){
+                    prevProd*=a[j];
+                    res+=(j-i+1);
+                    j++;
+                }
+            }
+        }
+        return res;
+    }
+};

@@ -1,0 +1,18 @@
+4) Run length Encoding
+string encode(string src)
+{     
+    string res="";
+    int n=src.length();
+    for(int i=0;i<n;i++){
+        int count=1;
+        int j=i;
+        while(i<n&&(src[i]==src[i+1])){
+            i++;
+            count++;
+        }
+        res+=src[j]+to_string(count);
+        
+    }
+    return res;
+  //Your code here 
+}    

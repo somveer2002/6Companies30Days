@@ -1,0 +1,17 @@
+5) Ugly Numbers
+
+ull getNthUglyNo(int n) {
+	    // code here
+	    set<ull> st;
+	    st.insert(1);
+	    n--;
+	    while(n--){
+	        auto x=st.begin();
+	        ull t=*x;
+	        st.erase(x);
+	        st.insert(t*2);
+	        st.insert(t*3);
+	        st.insert(t*5);
+	    }
+	    return *st.begin();
+}

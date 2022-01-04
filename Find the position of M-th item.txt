@@ -1,0 +1,16 @@
+7)Find the position of M-th item
+class Solution {
+  public:
+    int findPosition(int N , int M , int K) {
+        // code here
+        // K=K%N;
+        if((N-K+1)>=M)
+            return (M+K-1);
+        else{
+            M-=(N-K+1);
+            if(M%N==0)
+                return N;
+            return (M%N);
+        }
+    }
+};
